@@ -13,6 +13,11 @@ import Kingfisher
 class PhotoAlbumViewCell: UICollectionViewCell {
     @IBOutlet var photoAlbum: UIImageView!
     func configureCell(photo: Photo) {
+        let width = (UIScreen.main.bounds.width - 30) / 2
+                let height = width * 1.5
+        photoAlbum.heightAnchor.constraint(lessThanOrEqualToConstant: height).isActive = true
+        photoAlbum.widthAnchor.constraint(lessThanOrEqualToConstant: width).isActive = true
+
         // Load images from Core Data
         if let image = photo.getImage() {
             print("Load Image from Core Data")
